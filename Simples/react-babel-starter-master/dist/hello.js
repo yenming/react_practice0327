@@ -1,4 +1,26 @@
 'use strict';
+var slideShowBtn = React.createClass({
+  render:function(event){
+    return (
+      event.preventDafult();
+      console.log('submit')
+    },
+    render ：function(){
+      return(
+        <input
+        onClick={this.handleSubmit}
+        type="submit"
+        className = "btn btn-default"
+        value={this.prop.value}/>
+
+        );
+
+
+    }
+
+
+});
+
 
 var NameInput = React.createClass({ displayName: "NameInput",
   markdownGithubParser: function markdownGithubParser(data) {
@@ -18,6 +40,7 @@ var NameInput = React.createClass({ displayName: "NameInput",
       }
     });
   },
+
   markdownLocalParser: function markdownLocalParser(data) {
     var converter = new showdown.Converter();
     $(this.props.target).html(converter.makeHtml(this.state.data));
@@ -30,6 +53,12 @@ var NameInput = React.createClass({ displayName: "NameInput",
    else 
     this.markdownGithubParser(event.target.value);
   },
+  getInitialState : function(){
+    return{
+      data : ''
+
+    };
+  },
   componentDidMount: function() {
 
   },
@@ -40,6 +69,9 @@ var NameInput = React.createClass({ displayName: "NameInput",
       onChange: this.handleChange });
   }
 });
-
-ReactDOM.render(React.createElement(NameInput, { rows: "5", target: "#article", parser: "local" }), document.getElementById('container'));
+// 畫面
+ReactDOM.render(
+React.createElement(NameInput, 
+{ rows: "5", target: "#article", parser: "local" }), 
+document.getElementById('container'));
 //# sourceMappingURL=hello.js.map
