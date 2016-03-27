@@ -1,5 +1,5 @@
 'use strict';
-var slideShowBtn = React.createClass({
+const slideShowBtn = React.createClass({
   render:function(event){
     return (
       event.preventDafult();
@@ -19,12 +19,12 @@ var slideShowBtn = React.createClass({
     }
 
 
-});
+})
 
 
-var NameInput = React.createClass({ displayName: "NameInput",
+const NameInput = React.createClass({ displayName: "NameInput",
   markdownGithubParser: function markdownGithubParser(data) {
-    var self = this;
+    let self = this;
     $.ajax({
       method: 'POST',
       url: 'https://api.github.com/markdown/raw',
@@ -38,7 +38,7 @@ var NameInput = React.createClass({ displayName: "NameInput",
       error: function error(xhr, status, err) {
         console.log(err + ': ' + status);
       }
-    });
+    })
   },
 
   markdownLocalParser: function markdownLocalParser(data) {
