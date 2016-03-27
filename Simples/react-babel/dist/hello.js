@@ -36,6 +36,25 @@ var NameInput = React.createClass({ displayName: "NameInput",
   }
 });
 
+var SlideShow = React.createClass({
+  handleSubmit:function(event){
+    event.preventDefault();
+    $('#editor').addClass('hide');
+      var SlideShow = remark.create();
+
+  },
+  render:function(){
+    return(
+        <form onSubmit={this.handleSubmit}>
+        <SlideShowBtn value="slide NOW"/>
+        <NameInput rows="25" target="#article"/>
+        </form>
+      )
+
+  }
+
+});
+
 ReactDOM.render(
   React.createElement(NameInput, 
     { rows: "5", target: "#article", parser: "local" }), 
