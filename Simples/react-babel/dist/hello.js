@@ -23,7 +23,10 @@ var NameInput = React.createClass({ displayName: "NameInput",
     $(this.props.target).html(converter.makeHtml(data));
   },
   handleChange: function handleChange(event) {
-    if (this.props.parser && this.props.parser === "local") this.markdownLocalParser(event.target.value);else this.markdownGithubParser(event.target.value);
+    if (this.props.parser && this.props.parser === "local") 
+      this.markdownLocalParser(event.target.value);
+    else 
+      this.markdownGithubParser(event.target.value);
   },
   render: function render() {
     return React.createElement("textarea", {
@@ -33,5 +36,8 @@ var NameInput = React.createClass({ displayName: "NameInput",
   }
 });
 
-ReactDOM.render(React.createElement(NameInput, { rows: "5", target: "#article", parser: "local" }), document.getElementById('container'));
+ReactDOM.render(
+  React.createElement(NameInput, 
+    { rows: "5", target: "#article", parser: "local" }), 
+  document.getElementById('container'));
 //# sourceMappingURL=hello.js.map
